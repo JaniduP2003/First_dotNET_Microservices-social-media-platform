@@ -1,0 +1,185 @@
+version: '3.8'
+
+services:
+  # Infrastructure
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    networks:
+      - social-media-network
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - social-media-network
+
+  # Databases
+  auth-db:
+    image: postgres:15-alpine
+    container_name: auth-db
+    environment:
+      - POSTGRES_DB=authdb
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres123
+    ports:
+      - "5432:5432"
+    volumes:
+      - auth_db_data:/var/lib/postgresql/data
+    networks:
+      - social-media-network
+
+  user-db:
+    image: postgres:15-alpine
+    container_name: user-db
+    environment:
+      - POSTGRES_DB=userdb
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres123
+    ports:
+      - "5433:5432"
+    volumes:
+      - user_db_data:/var/lib/postgresql/data
+    networks:
+      - social-media-network
+
+  post-db:
+    image: postgres:15-alpine
+    container_name: post-db
+    environment:
+      - POSTGRES_DB=postdb
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres123
+    ports:
+      - "5434:5432"
+    volumes:
+      - post_db_data:/var/lib/postgresql/data
+    networks:
+      - social-media-network
+
+  comment-db:
+    image: postgres:15-alpine
+    container_name: comment-db
+    environment:
+      - POSTGRES_DB=commentdb
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres123
+    ports:
+      - "5435:5432"
+    volumes:
+      - comment_db_data:/var/lib/postgresql/data
+    networks:
+      - social-media-network
+
+  like-db:
+    image: postgres:15-alpine
+    container_name: like-db
+    environment:
+      - POSTGRES_DB=likedb
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres123
+    ports:
+      - "5436:5432"
+    volumes:
+      - like_db_data:/var/lib/postgresql/data
+    networks:
+      - social-media-network
+
+  feed-db:
+    image: postgres:15-alpine
+    container_name: feed-db
+    environment:
+      - POSTGRES_DB=feeddb
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres123
+    ports:
+      - "5437:5432"
+    volumes:
+      - feed_db_data:/var/lib/postgresql/data
+    networks:
+      - social-media-network
+
+  search-db:
+    image: postgres:15-alpine
+    container_name: search-db
+    environment:
+      - POSTGRES_DB=searchdb
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres123
+    ports:
+      - "5438:5432"
+    volumes:
+      - search_db_data:/var/lib/postgresql/data
+    networks:
+      - social-media-network
+
+  # Microservices (Will be added as we build them)
+  # gateway:
+  #   build: ./gateway
+  #   container_name: api-gateway
+  #   ports:
+  #     - "5000:80"
+  #   depends_on:
+  #     - rabbitmq
+  #     - redis
+  #   networks:
+  #     - social-media-network
+
+  # auth-api:
+  #   build: ./services/auth-service/Auth.API
+  #   container_name: auth-api
+  #   ports:
+  #     - "5001:80"
+  #   depends_on:
+  #     - auth-db
+  #     - rabbitmq
+  #   networks:
+  #     - social-media-network
+
+  # Monitoring (Optional)
+  # prometheus:
+  #   image: prom/prometheus
+  #   container_name: prometheus
+  #   ports:
+  #     - "9090:9090"
+  #   volumes:
+  #     - ./infrastructure/monitoring/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+  #   networks:
+  #     - social-media-network
+
+  # grafana:
+  #   image: grafana/grafana
+  #   container_name: grafana
+  #   ports:
+  #     - "3000:3000"
+  #   environment:
+  #     - GF_SECURITY_ADMIN_PASSWORD=admin
+  #   networks:
+  #     - social-media-network
+
+volumes:
+  rabbitmq_data:
+  redis_data:
+  auth_db_data:
+  user_db_data:
+  post_db_data:
+  comment_db_data:
+  like_db_data:
+  feed_db_data:
+  search_db_data:
+
+networks:
+  social-media-network:
+    driver: bridge
