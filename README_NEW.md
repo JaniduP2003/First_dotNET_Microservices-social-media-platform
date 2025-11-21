@@ -69,6 +69,7 @@ docker-compose logs -f
 ```
 
 Access the application:
+
 - **Frontend**: http://localhost:3000
 - **Backend API**: http://localhost:5000
 - **Swagger**: http://localhost:5000/swagger
@@ -94,18 +95,21 @@ npm run dev
 ## 🛠️ Tech Stack
 
 ### Frontend
+
 - **Next.js 14** - React framework with App Router
 - **Tailwind CSS** - Utility-first CSS
 - **Axios** - HTTP client
 - **SWR** - Data fetching
 
 ### Backend
+
 - **.NET 8** - Web API framework
 - **Entity Framework Core** - ORM
 - **PostgreSQL** - Database
 - **Clean Architecture** - Project structure
 
 ### DevOps
+
 - **Docker** - Containerization
 - **Docker Compose** - Orchestration
 - **Nginx** - Reverse proxy
@@ -114,13 +118,13 @@ npm run dev
 
 ### Posts
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/api/posts` | Get all posts |
-| GET | `/api/posts/{id}` | Get single post |
-| POST | `/api/posts` | Create post |
-| PUT | `/api/posts/{id}` | Update post |
-| DELETE | `/api/posts/{id}` | Delete post |
+| Method | Endpoint          | Description     |
+| ------ | ----------------- | --------------- |
+| GET    | `/api/posts`      | Get all posts   |
+| GET    | `/api/posts/{id}` | Get single post |
+| POST   | `/api/posts`      | Create post     |
+| PUT    | `/api/posts/{id}` | Update post     |
+| DELETE | `/api/posts/{id}` | Delete post     |
 
 ## 🔧 Configuration
 

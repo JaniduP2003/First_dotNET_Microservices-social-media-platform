@@ -5,6 +5,7 @@
 Your project has been transformed from a **microservices architecture** to a **monolithic full-stack architecture** with separate frontend and backend.
 
 ### Before (Microservices)
+
 ```
 ├── gateway/
 ├── shared/
@@ -13,6 +14,7 @@ Your project has been transformed from a **microservices architecture** to a **m
 ```
 
 ### After (Monolithic)
+
 ```
 ├── frontend/     # Next.js
 ├── backend/      # .NET Web API
@@ -151,6 +153,7 @@ npm run dev
 ## 📦 What's Included
 
 ### Frontend Features
+
 - ✅ Next.js 14 with App Router
 - ✅ Tailwind CSS styling
 - ✅ Axios HTTP client with interceptors
@@ -159,6 +162,7 @@ npm run dev
 - ✅ Docker ready
 
 ### Backend Features
+
 - ✅ .NET 8 Web API
 - ✅ Clean Architecture (API → Application → Domain → Infrastructure)
 - ✅ Entity Framework Core
@@ -169,6 +173,7 @@ npm run dev
 - ✅ Docker ready
 
 ### Infrastructure
+
 - ✅ Docker Compose orchestration
 - ✅ PostgreSQL database
 - ✅ Nginx reverse proxy config
@@ -212,6 +217,7 @@ dotnet ef database update --project ../SocialMedia.Infrastructure
 Start building features following the existing patterns:
 
 **Add a new entity:**
+
 1. Create entity in `Domain/Entities`
 2. Add DbSet to `Infrastructure/DataContext.cs`
 3. Create DTOs in `Application/DTOs`
@@ -220,24 +226,26 @@ Start building features following the existing patterns:
 6. Create controller in `API/Controllers`
 
 **Add a new page:**
+
 1. Create page in `frontend/src/app/your-page/page.jsx`
 2. Create components in `frontend/src/components`
 3. Use API client from `frontend/src/api/client.js`
 
 ## 📚 Key Files to Know
 
-| File | Purpose |
-|------|---------|
-| `docker-compose.yml` | Orchestrates all services |
-| `backend/SocialMedia.API/Program.cs` | Backend startup & DI |
-| `backend/SocialMedia.Infrastructure/DataContext.cs` | EF Core DbContext |
-| `frontend/src/api/client.js` | HTTP client configuration |
-| `frontend/src/app/page.jsx` | Home page component |
-| `frontend/next.config.js` | Next.js configuration |
+| File                                                | Purpose                   |
+| --------------------------------------------------- | ------------------------- |
+| `docker-compose.yml`                                | Orchestrates all services |
+| `backend/SocialMedia.API/Program.cs`                | Backend startup & DI      |
+| `backend/SocialMedia.Infrastructure/DataContext.cs` | EF Core DbContext         |
+| `frontend/src/api/client.js`                        | HTTP client configuration |
+| `frontend/src/app/page.jsx`                         | Home page component       |
+| `frontend/next.config.js`                           | Next.js configuration     |
 
 ## 🐛 Troubleshooting
 
 ### Backend won't start
+
 ```bash
 # Check logs
 docker-compose logs backend
@@ -247,6 +255,7 @@ docker-compose up -d --build backend
 ```
 
 ### Frontend won't start
+
 ```bash
 # Check logs
 docker-compose logs frontend
@@ -256,6 +265,7 @@ docker-compose up -d --build frontend
 ```
 
 ### Database connection issues
+
 ```bash
 # Check PostgreSQL
 docker-compose logs postgres
@@ -265,6 +275,7 @@ docker exec -it social-media-postgres psql -U postgres -l
 ```
 
 ### Port already in use
+
 ```bash
 # Check what's using the port
 sudo lsof -i :3000  # or :5000, :5432
@@ -275,6 +286,7 @@ sudo lsof -i :3000  # or :5000, :5432
 ## 🎯 Architecture Differences
 
 ### Microservices (Old)
+
 - ✅ Better for large teams
 - ✅ Independent scaling
 - ✅ Complex deployment
@@ -282,6 +294,7 @@ sudo lsof -i :3000  # or :5000, :5432
 - ❌ Harder to develop locally
 
 ### Monolithic (New)
+
 - ✅ Simpler to develop
 - ✅ Easier deployment
 - ✅ Less overhead
@@ -291,6 +304,7 @@ sudo lsof -i :3000  # or :5000, :5432
 ## 🔄 If You Want Microservices Back
 
 The old microservices structure is still available in the folders:
+
 - `gateway/`
 - `shared/`
 - `services/`

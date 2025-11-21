@@ -39,6 +39,7 @@ docker-compose ps
 ```
 
 **Access:**
+
 - Frontend: http://localhost:3000
 - Backend API: http://localhost:5000
 - Swagger: http://localhost:5000/swagger
@@ -48,6 +49,7 @@ docker-compose ps
 ## 📋 What's Been Created
 
 ### ✅ Frontend (Next.js)
+
 - [x] Next.js 14 with App Router
 - [x] Tailwind CSS configured
 - [x] Axios API client with interceptors
@@ -56,6 +58,7 @@ docker-compose ps
 - [x] Dockerfile
 
 **Files:**
+
 - `frontend/src/app/page.jsx` - Home page
 - `frontend/src/app/layout.jsx` - Root layout
 - `frontend/src/api/client.js` - API client
@@ -63,6 +66,7 @@ docker-compose ps
 - `frontend/Dockerfile` - Docker build
 
 ### ✅ Backend (.NET 8)
+
 - [x] Clean Architecture structure
 - [x] Entity Framework Core
 - [x] PostgreSQL integration
@@ -72,12 +76,14 @@ docker-compose ps
 - [x] Dockerfile
 
 **Projects:**
+
 - `SocialMedia.API` - Controllers & startup
 - `SocialMedia.Application` - Services & DTOs
 - `SocialMedia.Domain` - Entities
 - `SocialMedia.Infrastructure` - Data access
 
 **Files:**
+
 - `backend/SocialMedia.API/Controllers/PostsController.cs`
 - `backend/SocialMedia.API/Program.cs`
 - `backend/SocialMedia.Application/Services/PostService.cs`
@@ -85,6 +91,7 @@ docker-compose ps
 - `backend/SocialMedia.Infrastructure/DataContext.cs`
 
 ### ✅ Infrastructure
+
 - [x] Docker Compose orchestration
 - [x] PostgreSQL database
 - [x] Nginx reverse proxy config
@@ -95,11 +102,11 @@ docker-compose ps
 
 ## 📖 Documentation Created
 
-| File | Description |
-|------|-------------|
-| `README_NEW.md` | Complete project documentation |
-| `MIGRATION_GUIDE.md` | Step-by-step migration guide |
-| This file | Quick reference summary |
+| File                 | Description                    |
+| -------------------- | ------------------------------ |
+| `README_NEW.md`      | Complete project documentation |
+| `MIGRATION_GUIDE.md` | Step-by-step migration guide   |
+| This file            | Quick reference summary        |
 
 ---
 
@@ -136,6 +143,7 @@ dotnet ef database update --project ../SocialMedia.Infrastructure
 ### 3. Start Developing
 
 Follow patterns in existing code:
+
 - Add entities in `Domain/Entities`
 - Create services in `Application/Services`
 - Add controllers in `API/Controllers`
@@ -146,6 +154,7 @@ Follow patterns in existing code:
 ## 🛠️ Technology Stack
 
 ### Frontend
+
 - Next.js 14
 - React 18
 - Tailwind CSS
@@ -153,6 +162,7 @@ Follow patterns in existing code:
 - TypeScript ready
 
 ### Backend
+
 - .NET 8
 - Entity Framework Core
 - PostgreSQL
@@ -160,6 +170,7 @@ Follow patterns in existing code:
 - Clean Architecture
 
 ### DevOps
+
 - Docker
 - Docker Compose
 - Nginx
@@ -169,17 +180,17 @@ Follow patterns in existing code:
 
 ## 📁 Important Folders
 
-| Path | Purpose |
-|------|---------|
-| `frontend/src/app/` | Next.js pages (App Router) |
-| `frontend/src/components/` | Reusable React components |
-| `frontend/src/api/` | API client configuration |
-| `backend/SocialMedia.API/Controllers/` | API endpoints |
-| `backend/SocialMedia.Application/Services/` | Business logic |
-| `backend/SocialMedia.Domain/Entities/` | Database models |
-| `backend/SocialMedia.Infrastructure/` | Data access |
-| `docker/` | Docker configurations |
-| `tests/` | Test projects |
+| Path                                        | Purpose                    |
+| ------------------------------------------- | -------------------------- |
+| `frontend/src/app/`                         | Next.js pages (App Router) |
+| `frontend/src/components/`                  | Reusable React components  |
+| `frontend/src/api/`                         | API client configuration   |
+| `backend/SocialMedia.API/Controllers/`      | API endpoints              |
+| `backend/SocialMedia.Application/Services/` | Business logic             |
+| `backend/SocialMedia.Domain/Entities/`      | Database models            |
+| `backend/SocialMedia.Infrastructure/`       | Data access                |
+| `docker/`                                   | Docker configurations      |
+| `tests/`                                    | Test projects              |
 
 ---
 
@@ -272,9 +283,10 @@ docker-compose restart
 ### Port conflicts
 
 Edit `docker-compose.yml` to change ports:
+
 ```yaml
 ports:
-  - "3001:3000"  # Change 3001 to any available port
+  - "3001:3000" # Change 3001 to any available port
 ```
 
 ### Database issues
@@ -297,15 +309,16 @@ docker exec -it social-media-postgres psql -U postgres
 
 ## 📝 API Endpoints Available
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/api/posts` | Get all posts |
-| GET | `/api/posts/{id}` | Get single post |
-| POST | `/api/posts` | Create new post |
-| PUT | `/api/posts/{id}` | Update post |
-| DELETE | `/api/posts/{id}` | Delete post |
+| Method | Endpoint          | Description     |
+| ------ | ----------------- | --------------- |
+| GET    | `/api/posts`      | Get all posts   |
+| GET    | `/api/posts/{id}` | Get single post |
+| POST   | `/api/posts`      | Create new post |
+| PUT    | `/api/posts/{id}` | Update post     |
+| DELETE | `/api/posts/{id}` | Delete post     |
 
 **Test with curl:**
+
 ```bash
 # Get all posts
 curl http://localhost:5000/api/posts
@@ -321,11 +334,13 @@ curl -X POST http://localhost:5000/api/posts \
 ## 🎓 Learning Resources
 
 ### Frontend
+
 - [Next.js Documentation](https://nextjs.org/docs)
 - [Tailwind CSS](https://tailwindcss.com/docs)
 - [React Documentation](https://react.dev)
 
 ### Backend
+
 - [.NET Documentation](https://learn.microsoft.com/en-us/dotnet/)
 - [Entity Framework Core](https://learn.microsoft.com/en-us/ef/core/)
 - [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
@@ -393,10 +408,12 @@ Before deploying to production:
 Your modern full-stack application is **ready to use**!
 
 **Read the full documentation:**
+
 - `README_NEW.md` - Project overview
 - `MIGRATION_GUIDE.md` - Detailed setup guide
 
 **Start the application:**
+
 ```bash
 docker-compose up -d
 ```
@@ -405,4 +422,4 @@ docker-compose up -d
 
 ---
 
-*Created on November 21, 2025*
+_Created on November 21, 2025_
